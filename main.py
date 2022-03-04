@@ -1,7 +1,7 @@
 # Unofficial Ecosia Treecounter:
 # Shows the amount of trees planted by Ecosia (www.ecosia.org)
 # By SmartieTV (smartietv.de or youtube.com/smartietv)
-version = ("220227.06 (Stable)")
+version = ("220304.02 (Stable)")
 
 try: #Required imports
   from bs4 import BeautifulSoup #Used for parsing html data.
@@ -15,11 +15,14 @@ except Exception as e1:
   print("An error occured while trying to import the necessary libraries. Error: " + str(e1))
   try: #Try to manually install/import libraries.
     print("Trying to install necessary libraries...")
-    exec("sudo pip install BeautifulSoup4")
+    import pip
+    pip.main(["install","BeautifulSoup4"])
+    from bs4 import BeautifulSoup
   except:
     try:
       execCmd = ("sudo apt-get install python3-bs4")
       exec(execCmd)
+      from bs4 import BeautifulSoup
     except Exception as e2:
       print("Could not install necessary libraries. Error: " + str(e2))
       print("""
